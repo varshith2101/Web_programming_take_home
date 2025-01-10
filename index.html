@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Varshith J. - Portfolio</title>
+    <link rel="stylesheet" href="styling.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+        :root {
+            --primary-color: #A030C6;
+            --secondary-color: #A030C6;
+            --text-color: #333;
+            --background-color: #2b2b2b;
+        }
+
+        @font-face {
+            font-family: montreal;
+            src: url(ppneuemontreal-medium.otf) format("opentype");
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: montreal !important;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #d5d5d5;
+            background-color: var(--background-color);
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: #313131;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: #bbbbbb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #D2D233;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        h1, h2 {
+            margin-bottom: 1rem;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 60vh;
+            margin-top: 10vw;
+            background: radial-gradient(circle at center, rgba(160, 48, 198, 0.9), rgba(43, 43, 43, 0.9)),
+                        url('noisy-background.jpg');
+            background-size: cover;
+            color: #1e1e1e;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 15vh;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.5s;
+            animation-fill-mode: both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #D2D233;
+            color: #434343;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+            animation: fadeInUp 1s ease 1s;
+            animation-fill-mode: both;
+        }
+
+        .cta-button:hover {
+            background-color: #b3b317;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .profile-img {
+            width: 16vw;
+            height: 9vw;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .skill {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100px;
+        }
+
+        .skill i {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project {
+            background-color: #313131;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+        }
+
+        .project img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project h3, .project p {
+            padding: 1rem;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--secondary-color);
+            color: #313131;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-link:hover {
+            background-color: #D2D233;
+        }
+
+        #contact-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        #contact-form input,
+        #contact-form textarea {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border: 1px solid #313131;
+            border-radius: 5px;
+        }
+
+        #contact-form button {
+            background-color: var(--secondary-color);
+            color: #313131;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #contact-form button:hover {
+            background-color: #D2D233;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: #313131;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        .social-links {
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: #313131;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #D2D233;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-img {
+                width: 200px;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">YN</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <h1>Varshith</h1>
+            <p>Web Developer & Designer</p>
+            <a href="#contact" class="cta-button">Get in Touch</a>
+        </section>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <img src="pfp.jpeg" alt="varshith J" class="profile-img">
+                <p>Experienced Web Development Head with 1 year of impactful leadership in creating compelling websites and mentoring
+                    teams. Developed a high-impact, investor-attracting website for a student project, securing INR 4,50,000 in funding.
+                    Designed and managed a research-intensive website for an international competition, contributing to the project's
+                    recognition at an event in Paris. Skilled in teaching web development fundamentals and Git collaboration to ensure
+                    seamless project continuity. Adept at creating user-friendly, functional websites and providing guidance to junior team
+                    members.</p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skill">
+                    <i class="fab fa-html5"></i>
+                    <span>HTML5</span>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-css3-alt"></i>
+                    <span>CSS3</span>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-js"></i>
+                    <span>JavaScript</span>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-react"></i>
+                    <span>React</span>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-node-js"></i>
+                    <span>Node.js</span>
+                </div>
+                <div class="skill">
+                    <i class="fas fa-database"></i>
+                    <span>SQL</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects-container">
+                <div class="project">
+                    <img src="CAAPI.png" alt="Project 1">
+                    <h3>iGEM 2024 MIT-MAHE team's wiki page</h3>
+                    <p>Led the web development team to create a wiki page for official iGEM team for MIT-MAHE, Manipal BioMachines</p>
+                    <a href="https://2024.igem.wiki/mit-mahe/" class="project-link">View Project</a>
+                </div>
+                <div class="project">
+                    <img src="MBM.png" alt="Project 2">
+                    <h3>MBM page</h3>
+                    <p>Led the web development team to create a home page along with archive of previous projects done by Manipal Biomachines</p>
+                    <a href="https://manipalbiomachinesmahe.com" class="project-link">View Project</a>
+                </div>
+                <div class="project">
+                    <img src="HMS.png" alt="Project 3">
+                    <h3>Hospital Management System</h3>
+                    <p>As a part of my OOP lab mini project of Semester 3 of my bTech, made a Hospital management system</p>
+                    <a href="https://github.com/varshith2101/Hospital-Management-System" class="project-link">View Project</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form id="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Varshith J. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    
+        // Form submission
+        const form = document.getElementById('contact-form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+            
+            // Here you would typically send the data to a server
+            console.log('Form submitted:', data);
+            
+            // Show a success message (replace with your own logic)
+            alert('Thank you for your message! We\'ll get back to you soon.');
+            form.reset();
+        });
+    
+        // Animate skills on scroll
+        const skillsSection = document.getElementById('skills');
+        const skills = document.querySelectorAll('.skill');
+    
+        const animateSkills = () => {
+            const triggerBottom = window.innerHeight / 5 * 4;
+            skills.forEach(skill => {
+                const skillTop = skill.getBoundingClientRect().top;
+                if (skillTop < triggerBottom) {
+                    skill.style.animation = 'fadeInUp 0.5s ease forwards';
+                }
+            });
+        };
+    
+        window.addEventListener('scroll', animateSkills);
+    
+        // Animate projects on scroll
+        const projectsSection = document.getElementById('projects');
+        const projects = document.querySelectorAll('.project');
+    
+        const animateProjects = () => {
+            const triggerBottom = window.innerHeight / 5 * 4;
+            projects.forEach((project, index) => {
+                const projectTop = project.getBoundingClientRect().top;
+                if (projectTop < triggerBottom) {
+                    project.style.animation = `fadeInUp 0.5s ease ${index * 0.1}s forwards`;
+                }
+            });
+        };
+    
+        window.addEventListener('scroll', animateProjects);
+    });
+    </script>
+</body>
+</html>
